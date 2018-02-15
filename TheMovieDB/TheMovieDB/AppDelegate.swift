@@ -16,14 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let movieRequest : MovieService = MovieFacade()
+//        let movieRequest : MovieService = MovieFacade()
         
-        movieRequest.fetchMovie(movieId: 76341) { (movie) in
-            
-        }
+//        movieRequest.fetchMovie(movieId: 76341) { (movie) in
+//
+//        }
+        
+//        movieRequest.fetchMovies { (movies) in
+//
+//        }
         
         return true
     }
+    
+    
 
 }
 

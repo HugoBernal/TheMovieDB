@@ -7,19 +7,85 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    let movieRequest : MovieService = MovieFacade()
+    var moviesArray: [Movies]? = []
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        setUpTableView()
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Methods
+    
+    func setUpTableView() {
+        
+        movieRequest.fetchMovies { (movieResponse) in
+            self.moviesArray = movieResponse?.results
+            self.tableView.reloadData()
+        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
+    }
+    
+
+
+}
+
+
+// MARK: - TableView DataSource
+
+extension ViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return moviesArray?.count ?? 0
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "MoviesTableViewCell"
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MoviesTableViewCell {
+            
+            let movie = moviesArray?[indexPath.row]
+            
+            cell.titleLabel.text = movie?.originalTitle
+            cell.posterImage.af_setImage(withURL: URL(string: movie?.posterPath ?? "")!)
+            cell.overviewLabel.text = movie?.overview
+            
+            return cell
+        }
+        
+        fatalError("")
+        
+    }
+
     }
 
 
+
+// MARK: - TableView Delegate
+
+extension ViewController: UITableViewDelegate {
+    
 }
 
