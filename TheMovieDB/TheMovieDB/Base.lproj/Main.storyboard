@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kkH-jX-QYx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Movies Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TheMovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MoviesTableViewController" customModule="TheMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -101,6 +101,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="35.532233883058474"/>
+        </scene>
+        <!--Movies Collection View Controller-->
+        <scene sceneID="bnq-4Q-UsG">
+            <objects>
+                <viewController id="kkH-jX-QYx" customClass="MoviesCollectionViewController" customModule="TheMovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x4Z-u9-19x"/>
+                        <viewControllerLayoutGuide type="bottom" id="q1R-3H-CAb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xdp-JL-EXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G8n-kX-XYk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lvh-6Y-cXb">
+                                    <size key="itemSize" width="375" height="94"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="tYW-SO-QQg" customClass="MoviesCollectionViewCell" customModule="TheMovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uru-xE-94h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="H1t-Ga-S8k"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="TH1-hf-Wix">
+                                                    <rect key="frame" x="0.0" y="52" width="188" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="iUj-ZN-tER"/>
+                                                        <constraint firstAttribute="width" constant="188" id="n6d-dh-hCU"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="uru-xE-94h" firstAttribute="leading" secondItem="tYW-SO-QQg" secondAttribute="leading" id="38z-cz-Q8B"/>
+                                            <constraint firstItem="TH1-hf-Wix" firstAttribute="top" secondItem="uru-xE-94h" secondAttribute="bottom" constant="2" id="7LP-wK-ifJ"/>
+                                            <constraint firstItem="uru-xE-94h" firstAttribute="top" secondItem="tYW-SO-QQg" secondAttribute="top" id="Vfb-Wu-bMc"/>
+                                            <constraint firstAttribute="trailing" secondItem="TH1-hf-Wix" secondAttribute="trailing" id="iV8-58-Z2U"/>
+                                            <constraint firstAttribute="trailing" secondItem="uru-xE-94h" secondAttribute="trailing" id="nR0-HI-OAO"/>
+                                            <constraint firstItem="TH1-hf-Wix" firstAttribute="top" secondItem="uru-xE-94h" secondAttribute="bottom" constant="2" id="oY3-XL-lGB"/>
+                                            <constraint firstAttribute="bottom" secondItem="TH1-hf-Wix" secondAttribute="bottom" id="uCK-f9-rrj"/>
+                                            <constraint firstItem="TH1-hf-Wix" firstAttribute="leading" secondItem="tYW-SO-QQg" secondAttribute="leading" id="yzK-al-0cl"/>
+                                        </constraints>
+                                        <size key="customSize" width="187.5" height="180"/>
+                                        <connections>
+                                            <outlet property="posterImage" destination="TH1-hf-Wix" id="TMf-3O-PWz"/>
+                                            <outlet property="titleLabel" destination="uru-xE-94h" id="6G2-9p-pbx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q1R-3H-CAb" firstAttribute="top" secondItem="G8n-kX-XYk" secondAttribute="bottom" id="ae1-Qx-0kZ"/>
+                            <constraint firstAttribute="trailing" secondItem="G8n-kX-XYk" secondAttribute="trailing" id="bA8-4T-Mkz"/>
+                            <constraint firstItem="G8n-kX-XYk" firstAttribute="top" secondItem="Xdp-JL-EXK" secondAttribute="top" id="gon-T6-LvX"/>
+                            <constraint firstItem="G8n-kX-XYk" firstAttribute="leading" secondItem="Xdp-JL-EXK" secondAttribute="leading" id="hrH-mH-OqO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="G8n-kX-XYk" id="KjQ-Z2-iDD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8D-Je-9pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.4000000000001" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>

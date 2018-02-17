@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MoviesTableViewController.swift
 //  TheMovieDB
 //
 //  Created by Jaime Laino on 1/24/17.
@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class ViewController: UIViewController {
+class MoviesTableViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 
 // MARK: - TableView DataSource
 
-extension ViewController: UITableViewDataSource {
+extension MoviesTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -69,7 +69,7 @@ extension ViewController: UITableViewDataSource {
             let movie = moviesArray?[indexPath.row]
             
             cell.titleLabel.text = movie?.originalTitle
-            cell.posterImage.af_setImage(withURL: URL(string: movie?.posterPath ?? "")!)
+            cell.posterImage.af_setImage(withURL: URL(string: movie?.posterPath ?? "")!, placeholderImage: UIImage(named: "iTunesArtwork") , filter: nil, progress: nil, imageTransition: .flipFromTop(0.4), completion: nil)  //(withURL: URL(string: movie?.posterPath ?? "")!)
             cell.overviewLabel.text = movie?.overview
             
             return cell
@@ -85,7 +85,7 @@ extension ViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 
-extension ViewController: UITableViewDelegate {
+extension MoviesTableViewController: UITableViewDelegate {
     
 }
 

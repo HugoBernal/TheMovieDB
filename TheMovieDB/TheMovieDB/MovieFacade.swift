@@ -49,7 +49,7 @@ class MovieFacade : MovieService {
                     return
             }
             
-            var JSONResponse = MovieResponse()
+            let JSONResponse = MovieResponse()
             let mappedMovies = values.map { rawMovie in
                 return self.parseMovie(json: rawMovie)
             }
